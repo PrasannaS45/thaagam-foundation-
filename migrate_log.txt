@@ -1,0 +1,111 @@
+System check identified some issues:
+
+WARNINGS:
+?: (mysql.W002) MariaDB Strict Mode is not set for database connection 'default'
+	HINT: MariaDB's Strict Mode fixes many data integrity problems in MariaDB, such as data truncation upon insertion, by escalating warnings into errors. It is strongly recommended you activate it. See: https://docs.djangoproject.com/en/5.2/ref/databases/#mysql-sql-mode
+Operations to perform:
+  Apply all migrations: accounts, activities, admin, assignments, attendance, auth, beneficiaries, contenttypes, distribution, sessions, volunteers
+Running migrations:
+  Applying contenttypes.0001_initial...Traceback (most recent call last):
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\utils.py", line 103, in _execute
+    return self.cursor.execute(sql)
+           ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\MySQLdb\cursors.py", line 219, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\MySQLdb\cursors.py", line 498, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\MySQLdb\connections.py", line 300, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+MySQLdb.OperationalError: (1050, "Table 'django_content_type' already exists")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\manage.py", line 13, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\manage.py", line 9, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\core\management\__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\core\management\__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\core\management\base.py", line 420, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\core\management\base.py", line 464, in execute
+    output = self.handle(*args, **options)
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\core\management\base.py", line 111, in wrapper
+    res = handle_func(*args, **kwargs)
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\core\management\commands\migrate.py", line 353, in handle
+    post_migrate_state = executor.migrate(
+        targets,
+    ...<3 lines>...
+        fake_initial=fake_initial,
+    )
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\migrations\executor.py", line 135, in migrate
+    state = self._migrate_all_forwards(
+        state, plan, full_plan, fake=fake, fake_initial=fake_initial
+    )
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\migrations\executor.py", line 167, in _migrate_all_forwards
+    state = self.apply_migration(
+        state, migration, fake=fake, fake_initial=fake_initial
+    )
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\migrations\executor.py", line 255, in apply_migration
+    state = migration.apply(state, schema_editor)
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\migrations\migration.py", line 132, in apply
+    operation.database_forwards(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.app_label, schema_editor, old_state, project_state
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\migrations\operations\models.py", line 97, in database_forwards
+    schema_editor.create_model(model)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\base\schema.py", line 512, in create_model
+    self.execute(sql, params or None)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\base\schema.py", line 204, in execute
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\utils.py", line 103, in _execute
+    return self.cursor.execute(sql)
+           ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\MySQLdb\cursors.py", line 219, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\MySQLdb\cursors.py", line 498, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "C:\Users\S PRASANNA\Downloads\thaagam_ngo\thaagam_ngo\venv\Lib\site-packages\MySQLdb\connections.py", line 300, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.OperationalError: (1050, "Table 'django_content_type' already exists")
